@@ -1,0 +1,19 @@
+/* Basic rules here */
+/* import the fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Roboto:ital,wght@0,100;1,300;1,900&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #E9EDDE;
+}
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+}
