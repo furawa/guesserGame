@@ -6,11 +6,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shorcut icon" type="image/png" href="./assets/images/favicon.png">
         <title>Number Guesser</title>
-        <link rel="styleshee" href="./assets/css/reset.css">
+        <link rel="stylesheet" href="./assets/css/reset.css">
         <link rel="stylesheet" href="./assets/css/style.css">
         
     </head>
     <body>
+        <section class="game-area">
+            <header>
+                <h1>The Number Guesser Game</h1>
+                <div class="instruction-container">
+                    <div class="instruction">
+                        <h2>Step 1</h2>
+                        <p>Input a number between 0 an 9</p>
+                    </div>
+                    <div class="instruction">
+                        <h2>Step 2</h2>
+                        <p>Click the "Guess" button to submit your guess and see who won the round between you and the computer</p>
+                    </div>
+                    <div class="instruction">
+                        <h2>Step 3</h2>
+                        <p>Click the "Next Round" button to play another round</p>
+                    </div>
+                    <div class="instruction">
+                        <h2>Step 4</h2>
+                        <p>Click on the "End Game" button to end the game and see your overall results</p>
+                    </div>
+                </div>
+            </header>
 
+            <!--Play area-->
+            <section class="play-area">
+                <h2>Round <span class="round-label">1</span></h2>
+                <h3>Number To Guess: <span class="target-label">?</span></h3>
+                <div class="container">
+                    <section class="container__computer">
+                        <h2>Computer</h2>
+                        <h3>Score: <span class="computer-score-label">0</span></h3>
+                        <p class="computer-guess-label">?</p>
+                    </section>
+                    <section class="container__player">
+                        <h2>You</h2>
+                        <h3>Score: <span class="player-score-label">0</span></h3>
+                        <button class="btn btn-guess">Guess</button>
+                    </section>
+                </div>
+                <div class="next-game">
+                    <button class="btn btn-next" disabled>Next Round</button>
+                    <button class="btn btn-end" disabled>End Game</button>
+                </div>
+            </section>
+        </section>
     </body>
 </html>
