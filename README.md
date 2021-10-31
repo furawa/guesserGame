@@ -2,7 +2,7 @@
 ## Goal
 The goal of this project is to learn how to use Javascript to interact with the DOM.   
 ## How to play  
-The goal of the game is to find a random number between 0 and 9. 
+The goal of the game is to find a random number between 0 and 9.   
 You are playing against a computer.  
 1. Input a number between 0 and 9 using the - and + buttons  
 2. Click the "Guess" button to make a Guess  
