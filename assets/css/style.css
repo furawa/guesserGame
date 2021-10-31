@@ -8,6 +8,8 @@
     box-sizing: border-box;
 }
 
+
+
 body {
     font-family: "Roboto", sans-serif;
     background-color: #E9EDDE;
@@ -33,6 +35,12 @@ h3 {
 }
 
 /* Buttons rules */ 
+/* Remove the arrows inside the input field */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+}
 
 .btn {
     border: none;
@@ -82,7 +90,7 @@ h3 {
 }
 .container {
     width: 70%;
-    height: 400px;
+    height: 600px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +98,7 @@ h3 {
 }
 .container__computer, .container__player {
     width: 50%;
+    height: 50%;
     flex: 1 200px;
     display: flex;
     flex-direction: column;
