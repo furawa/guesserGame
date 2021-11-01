@@ -21,6 +21,7 @@ error.style.border = "1px solid red";
 error.style.margin = "auto";
 // Add the input after the score
 const guessBtn = document.getElementsByClassName("btn-guess");
+
 // Function to insert the input
 function insertInput() {
    guessBtn[0].insertAdjacentElement("beforebegin", playerInput)
@@ -47,7 +48,6 @@ btnPlus.style.border = "1px solid #4D5061";
 btnPlus.style.cursor = "pointer";
 btnPlus.style.color = "#4D5061";
 
-
 // Append the buttons inside the div
 divControl.appendChild(btnMinus);
 divControl.appendChild(btnPlus);
@@ -57,6 +57,27 @@ function insertControls() {
    // First we insert the buttons inside the div
    guessBtn[0].insertAdjacentElement("beforebegin", divControl);
 }
+
+/* Function to display the results after end game */
+
+const showResult = () => {
+   // Create the div to contain the results
+   divResults = createEle("div","result", "1.2rem", width="100%");
+   divResults.innerHTML = `<h2>Game ${GameNumber}<h2>
+                        <p>Your Score: ${playerScore}<br>
+                        Computer Score: ${computerScore}<br>
+                        Number of Rounds: ${currentRoundNumber - 1}
+                        <hr>`;
+   
+   
+   // Little styling
+   // divResults.style.border = "1px solid black";
+   divResults.style.textAlign = "left";
+   // Append the div in the footer
+   document.querySelector("body").appendChild(divResults);
+}
+
+
 
 // Helper function
 function createEle(element, id = "", fontSize="1.5rem", width = "auto", height ="auto") {

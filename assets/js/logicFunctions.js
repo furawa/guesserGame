@@ -47,14 +47,7 @@ const goNextRound = () => {
 
 // Function to end the Game. The function will reset all the values
 const endGame = () => {
-    // Create the footer element where to print the results
-    const divResults = createEle("footer", "results", "1.7rem", "70%", "400px");
-    divResults.innerHTML = `<h2>Game ${GameNumber} results<h2>
-                            <p>Your Score: ${playerScore}<br>
-                            Computer Score: ${computerScore}<br>
-                            Number of Round: ${currentRoundNumber - 1}`
-    // Append the footer in the body
-    document.querySelector("body").appendChild(divResults);
+    showResult();
     resetEndGame();
 }
 // Helper functions
