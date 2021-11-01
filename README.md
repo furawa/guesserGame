@@ -11,5 +11,6 @@ You are playing against a computer.
 2. Click the "Guess" button to make a Guess  
 3. The winner of each round is the one having the closest number to the number to guess. The player wins in case of a tie. 
 4. Click "Next Round" to play another round  
-5. Click "End Game" to Finish the Game and reset your score. You can end the game after at least 3 rounds.
+5. Click "End Game" to Finish the Game and reset your score. You can end the game after at least 3 rounds.  
 
+Here is the link to see to play the game. https://furawa.github.io/guesserGame/;
