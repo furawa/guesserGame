@@ -29,7 +29,7 @@ const updateScore = winner => {
 
 // Function to go to the next round
 const goNextRound = () => {
-    currentRoundNumber += 1;
+    
     // Enable the end game button after 3 rounds
     if (currentRoundNumber > 3) {
         endGameButton.removeAttribute("disabled");
@@ -102,3 +102,5 @@ function correctColor() {
        btnPlus.style.backgroundColor = "#E7E247";
     }
  }
+
+ 

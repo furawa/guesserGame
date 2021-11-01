@@ -2,7 +2,6 @@
 
 let secretNumber;
 
-
 const roundLabel = document.getElementsByClassName("round-label")[0];
 const computerScoreEl = document.getElementById("computer-score"); // Get the computer score
 const playerScoreEl = document.getElementById("player-score"); // Get the player score
@@ -13,9 +12,7 @@ const endGameButton = document.getElementsByClassName("btn-end")[0];
 const playerWinDisplay = document.getElementById("player-win");
 const computerWinDisplay = document.getElementById("computer-win");
 
-
 // Link to controls button to the player input
-
 btnPlus.addEventListener("click", () => {
     playerInput.value = Number(playerInput.value) + 1;
     handleInputValue(Number(playerInput.value));
@@ -73,6 +70,7 @@ guessBtn[0].addEventListener("click", () => {
     btnPlus.setAttribute("disabled", true); // Disable the plus button
     playerInput.setAttribute("readonly", true); // Disable the input field
     correctColor();
+    currentRoundNumber += 1; // Increase the round
 });
 
 // Player click the Next round button 
@@ -111,10 +109,10 @@ const handleInputValue = value => {
         showErrorMessage("none");
     }
     correctColor();
-}
-
-// Function to display the error message
-const showErrorMessage = (display = "none", message = "") => {
+ }
+ 
+ // Function to display the error message
+ const showErrorMessage = (display = "none", message = "") => {
     error.style.display = display;
     error.textContent = message;
-}
+ }
