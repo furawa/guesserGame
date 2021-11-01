@@ -43,6 +43,8 @@ const goNextRound = () => {
     computerWinDisplay.textContent = "Computer";
     computerGuessLabel.textContent = "?";
     playerInput.removeAttribute("readonly");
+    correctColor();
+
 }
 
 // Function to end the Game. The function will reset all the values
@@ -87,3 +89,16 @@ const resetEndGame = () => {
 const initializeValues = () => {
     return playerScore, computerScore, currentRoundNumber;
 }
+
+function correctColor() {
+    if (btnMinus.disabled) {
+       btnMinus.style.backgroundColor = "#E9EDDE";
+    } else {
+       btnMinus.style.backgroundColor = "#E7E247";
+    }
+    if (btnPlus.disabled) {
+       btnPlus.style.backgroundColor = "#E9EDDE";
+    } else {
+       btnPlus.style.backgroundColor = "#E7E247";
+    }
+ }

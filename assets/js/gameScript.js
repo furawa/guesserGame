@@ -72,6 +72,7 @@ guessBtn[0].addEventListener("click", () => {
     btnMinus.setAttribute("disabled", true); // Disable the minus button
     btnPlus.setAttribute("disabled", true); // Disable the plus button
     playerInput.setAttribute("readonly", true); // Disable the input field
+    correctColor();
 });
 
 // Player click the Next round button 
@@ -109,6 +110,7 @@ const handleInputValue = value => {
         btnPlus.setAttribute("disabled", true);
         showErrorMessage("none");
     }
+    correctColor();
 }
 
 // Function to display the error message

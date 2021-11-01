@@ -2,7 +2,7 @@
    Creation, removal and modification of elements and nodes */
 
 // Create the player input element
-const playerInput = createEle(element="input", id="playerInput",fontSize="1.4rem",width="90px", height="90px");
+const playerInput = createEle(element="input", id="playerInput", fontSize="1.4rem",width="90px", height="90px");
 playerInput.type = "number"; // Set the type of the input
 playerInput.min = "0"; // Set the min value
 playerInput.max = "9"; // Set the max value
@@ -34,19 +34,22 @@ divControl.className = "container-controls"; // Set a class to the div
 divControl.style.margin = "1% auto 5% auto";
 
 // Create minus button
-const btnMinus = createEle("button", id = "minus", width = "45px", height = "45px"); // Create the minus button
+const btnMinus = createEle("button", id="minus", width = "45px", height = "45px"); // Create the minus button
 btnMinus.textContent = "-"; // Set the text to be -
 btnMinus.style.borderRadius = "50% 0 0 50%";
 btnMinus.style.border = "1px solid #4D5061";
 btnMinus.style.color = "#4D5061";
+// btnMinus.style.backgroundColor = "#E7E247";
 btnMinus.disabled = "true";
+
 // Create plus button
-const btnPlus = createEle("button", id = "plus", width = "45px", height = "45px");
+const btnPlus = createEle("button", id="plus", width = "45px", height = "45px");
 btnPlus.textContent = "+";
 btnPlus.style.borderRadius = "0 50% 50% 0";
 btnPlus.style.border = "1px solid #4D5061";
 btnPlus.style.cursor = "pointer";
 btnPlus.style.color = "#4D5061";
+btnPlus.style.backgroundColor = "#E7E247";
 
 // Append the buttons inside the div
 divControl.appendChild(btnMinus);
@@ -59,24 +62,20 @@ function insertControls() {
 }
 
 /* Function to display the results after end game */
-
 const showResult = () => {
    // Create the div to contain the results
-   divResults = createEle("div","result", "1.2rem", width="100%");
+   divResults = createEle("div", "1rem", width="100%");
+   divResults.className = "result";
    divResults.innerHTML = `<h2>Game ${GameNumber}<h2>
                         <p>Your Score: ${playerScore}<br>
                         Computer Score: ${computerScore}<br>
-                        Number of Rounds: ${currentRoundNumber - 1}
-                        <hr>`;
-   
-   
+                        Number of Rounds: ${currentRoundNumber - 1}</p>`;
    // Little styling
    // divResults.style.border = "1px solid black";
    divResults.style.textAlign = "left";
    // Append the div in the footer
-   document.querySelector("body").appendChild(divResults);
+   document.getElementById("div-container").appendChild(divResults);
 }
-
 
 
 // Helper function
@@ -88,4 +87,17 @@ function createEle(element, id = "", fontSize="1.5rem", width = "auto", height =
    el.id = id;
    
    return el;
+}
+
+function correctColor() {
+   if (btnMinus.disabled) {
+      btnMinus.style.backgroundColor = "#E9EDDE";
+   } else {
+      btnMinus.style.backgroundColor = "#E7E247";
+   }
+   if (btnPlus.disabled) {
+      btnPlus.style.backgroundColor = "#E9EDDE";
+   } else {
+      btnPlus.style.backgroundColor = "#E7E247";
+   }
 }
