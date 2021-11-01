@@ -10,13 +10,22 @@ playerInput.value = "0"; // Set the default value;
 // Style the input field. This can be done in style.css too
 playerInput.style.margin = "auto";
 playerInput.style.textAlign = "center";
+// playerInput.setAttribute("readonly", true);
 
-
+// Create a span to display error message
+const error = createEle("span", "error", "0.7rem", width="200px", height="30px");
+error.style.display = "none";
+error.style.color = "black";
+error.style.marginTop = "5px";
+error.style.border = "1px solid red";
+error.style.margin = "auto";
 // Add the input after the score
 const guessBtn = document.getElementsByClassName("btn-guess");
 // Function to insert the input
 function insertInput() {
    guessBtn[0].insertAdjacentElement("beforebegin", playerInput)
+   // Insert the error span, won't be visible as there is no text
+   playerInput.insertAdjacentElement("afterend", error);
 }
 // Insert controls buttons to control the input field
 const divControl = createEle(element = "div", id="btn-controls", fontSize = "0"); // Create the div container for the buttons

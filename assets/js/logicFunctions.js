@@ -8,7 +8,7 @@ let GameNumber = 1;
 // Function to generate the number to guess
 
 const generateNumber = () => {
-    return Math.floor(Math.random() * 9);
+    return Math.floor(Math.random() * 10);
 }
 
 // Function to compare the results between computer and player
