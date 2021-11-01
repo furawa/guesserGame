@@ -8,8 +8,6 @@
     box-sizing: border-box;
 }
 
-
-
 body {
     font-family: "Roboto", sans-serif;
     background-color: #E9EDDE;
@@ -87,8 +85,13 @@ input::-webkit-inner-spin-button {
 .instruction {
     width: 200px;
     flex: 1 150px;
-    height: 200px;
+    height: fit-content;
     border: 1px dotted #5B5848;
+}
+@media screen and (min-width: 576px) {
+    .instruction {
+        height: 180px;
+    }
 }
 /* Play area */
 .play-area h3{
