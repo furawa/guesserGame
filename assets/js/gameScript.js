@@ -26,6 +26,12 @@ btnMinus.addEventListener("click", () => {
     handleInputValue(Number(playerInput.value));
 })
 
+// Function to disable the guess btn if a wrong value is inserted
+playerInput.addEventListener("input", function(e) { // No useful with readonly
+    handleInputValue(e.target.value);
+})
+
+// Player click the button 
 guessBtn[0].addEventListener("click", () => {
     // Generate Secret number
     secretNumber = generateNumber();
@@ -51,7 +57,7 @@ guessBtn[0].addEventListener("click", () => {
     if (IsPlayerWinner) {
         playerWinDisplay.textContent = "You Win!!!!!";
     } else {
-        computerWinDisplay.textContent = "Computer Wins:(";
+        computerWinDisplay.innerText = "Computer Wins:(";
         playerWinDisplay.textContent = "Try again!";
     }
 
@@ -66,8 +72,14 @@ guessBtn[0].addEventListener("click", () => {
     btnMinus.setAttribute("disabled", true); // Disable the minus button
     btnPlus.setAttribute("disabled", true); // Disable the plus button
     playerInput.setAttribute("readonly", true); // Disable the input field
-
 });
+
+// Player click the Next round button 
+
+nextRoundButton.addEventListener("click", () => {
+    goNextRound();
+})
+/* Helper functions */
 
 // Function to Check the value of the input
 const handleInputValue = value => {
@@ -76,10 +88,10 @@ const handleInputValue = value => {
         btnPlus.removeAttribute("disabled");
         guessBtn[0].removeAttribute("disabled");
         showErrorMessage();
-    } else if (value >= Number(playerInput.max)) {
+    } else if (value > Number(playerInput.max)) {
         btnPlus.setAttribute("disabled", true);
         guessBtn[0].setAttribute("disabled", true);
-        showErrorMessage("block", "You should enter a number less than 9!!");
+        showErrorMessage("block", "You should enter a number less than 10!!");
     } else if (value < Number(playerInput.min)) {
         btnMinus.setAttribute("disabled", true);
         guessBtn[0].setAttribute("disabled", true);
@@ -87,13 +99,11 @@ const handleInputValue = value => {
     } else if (value == Number(playerInput.min)) {
         btnMinus.setAttribute("disabled", true);
         showErrorMessage("none");
+    } else if (value == Number(playerInput.max)) {
+        btnPlus.setAttribute("disabled", true);
+        showErrorMessage("none");
     }
 }
-
-// Function to disable the guess btn if a wrong value is inserted
-playerInput.addEventListener("input", function(e) { // No useful with readonly
-    handleInputValue(e.target.value);
-})
 
 // Function to display the error message
 const showErrorMessage = (display = "none", message = "") => {

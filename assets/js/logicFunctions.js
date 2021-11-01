@@ -28,8 +28,20 @@ const updateScore = winner => {
 }
 
 // Function to go to the next round
-const GoNextRound = () => {
+const goNextRound = () => {
     currentRoundNumber += 1;
+    // Enable the end game button after 3 rounds
+    if (currentRoundNumber > 3) {
+        endGameButton.removeAttribute("disabled");
+    }
+    nextRoundButton.setAttribute("disabled", true); // Disable button after clicking
+    roundLabel.textContent = currentRoundNumber;
+    btnPlus.removeAttribute("disabled");
+    guessBtn[0].removeAttribute("disabled");
+    playerInput.value = "0";
+    playerWinDisplay.textContent = "You";
+    computerWinDisplay.textContent = "Computer";
+    computerGuessLabel.textContent = "?";
 }
 
 // Function to end the Game. The function will reset all the values
