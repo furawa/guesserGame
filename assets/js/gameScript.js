@@ -79,6 +79,12 @@ guessBtn[0].addEventListener("click", () => {
 nextRoundButton.addEventListener("click", () => {
     goNextRound();
 })
+
+// Player end the game
+
+endGameButton.addEventListener("click", () => {
+    endGame();
+})
 /* Helper functions */
 
 // Function to Check the value of the input

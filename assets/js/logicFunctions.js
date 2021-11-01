@@ -42,6 +42,7 @@ const goNextRound = () => {
     playerWinDisplay.textContent = "You";
     computerWinDisplay.textContent = "Computer";
     computerGuessLabel.textContent = "?";
+    playerInput.removeAttribute("readonly");
 }
 
 // Function to end the Game. The function will reset all the values
@@ -51,12 +52,45 @@ const endGame = () => {
     divResults.innerHTML = `<h2>Game ${GameNumber} results<h2>
                             <p>Your Score: ${playerScore}<br>
                             Computer Score: ${computerScore}<br>
-                            Number of Round: ${currentRoundNumber}`
+                            Number of Round: ${currentRoundNumber - 1}`
     // Append the footer in the body
     document.querySelector("body").appendChild(divResults);
+    resetEndGame();
 }
 // Helper functions
 
 const getAbsoluteDistance = (a, b) => {
     return Math.abs(a - b);
+}
+
+// Function to reset for the next round
+const resetNextRound = () => {
+    nextRoundButton.setAttribute("disabled", true); // Disable button after clicking
+    roundLabel.textContent = currentRoundNumber;
+    btnPlus.removeAttribute("disabled");
+    guessBtn[0].removeAttribute("disabled");
+    playerInput.value = "0";
+    playerWinDisplay.textContent = "You";
+    computerWinDisplay.textContent = "Computer";
+    computerGuessLabel.textContent = "?";
+    playerInput.removeAttribute("readonly");
+}
+
+// Funtion to reset after end game
+
+const resetEndGame = () => {
+    resetNextRound();
+    GameNumber += 1;
+    playerScore = 0;
+    computerScore = 0;
+    currentRoundNumber = 1;
+    roundLabel.textContent = currentRoundNumber;
+    playerScoreEl.textContent = playerScore;
+    computerScoreEl.textContent = computerScore;
+    endGameButton.setAttribute("disabled", true);
+}
+
+// Function to initialize values
+const initializeValues = () => {
+    return playerScore, computerScore, currentRoundNumber;
 }
