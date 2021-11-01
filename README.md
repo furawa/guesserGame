@@ -6,7 +6,7 @@ The goal of the game is to find a random number between 0 and 9.
 You are playing against a computer.  
 1. Input a number between 0 and 9 using the - and + buttons  
 2. Click the "Guess" button to make a Guess  
-3. If the number you guessed is correct you win and have 1 point, if it is correct and the same as the computer it is a tie you both have 0 point, otherwise you lose and the computer has 1 point.  
+3. The winner of each round is the one having the closest number to the number to guess. The player wins in case of a tie. 
 4. Click "Next Round" to play another round  
 5. Click "End Game" to Finish the Game and reset your score.
 
