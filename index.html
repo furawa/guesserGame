@@ -8,7 +8,7 @@
         <title>Number Guesser</title>
         <link rel="stylesheet" href="./assets/css/reset.css">
         <link rel="stylesheet" href="./assets/css/style.css">
-        <script src="./assets/js/interactionFunctions.js"></script>
+        
         
     </head>
     <body onload="insertInput(), insertControls()">
@@ -39,16 +39,16 @@
             <!--Play area-->
             <section class="play-area">
                 <h2>Round <span class="round-label">1</span></h2>
-                <h3>Number To Guess: <span id="target-label">?</span></h3>
+                <h3>Number To Guess:<span id="target-label">?</span></h3>
                 <div class="container">
                     <section class="container__computer">
                         <h2 class="computer-winning" id="computer-win">Computer</h2>
-                        <h3>Score: <span id="computer-score">0</span></h3>
+                        <h3>Score:  <span id="computer-score">0</span></h3>
                         <p class="computer-guess-label">?</p>
                     </section>
                     <section class="container__player">
                         <h2 class="player-winning" id="player-win">You</h2>
-                        <h3>Score: <span id="player-score">0</span></h3>
+                        <h3>Score:  <span id="player-score">0</span></h3>
                         <button class="btn btn-guess">Guess</button>
                     </section>
                 </div>
@@ -62,6 +62,7 @@
         <footer>
             <p>&copy; by furawa 2021</p>
         </footer>
+        <script src="./assets/js/interactionFunctions.js"></script>
         <script src="assets/js/logicFunctions.js"></script>
         <script src="assets/js/gameScript.js"></script>
     </body>

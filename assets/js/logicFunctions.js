@@ -6,7 +6,6 @@ let currentRoundNumber = 1;
 let GameNumber = 1;
 
 // Function to generate the number to guess
-
 const generateNumber = () => {
     return Math.floor(Math.random() * 10);
 }
@@ -20,31 +19,17 @@ const compareGuesses = (playerGuess, computerGuess, secretNumber) => {
 
 // Function to update the score
 const updateScore = winner => {
-    if (winner === "player") {
-        playerScore += 1;
-    } else {
-        computerScore += 1;
-    }
+    winner === "player" ? playerScore++ : computerScore++;
 }
 
 // Function to go to the next round
 const goNextRound = () => {
-    
     // Enable the end game button after 3 rounds
     if (currentRoundNumber > 3) {
         endGameButton.removeAttribute("disabled");
     }
-    nextRoundButton.setAttribute("disabled", true); // Disable button after clicking
-    roundLabel.textContent = currentRoundNumber;
-    btnPlus.removeAttribute("disabled");
-    guessBtn[0].removeAttribute("disabled");
-    playerInput.value = "0";
-    playerWinDisplay.textContent = "You";
-    computerWinDisplay.textContent = "Computer";
-    computerGuessLabel.textContent = "?";
-    playerInput.removeAttribute("readonly");
-    correctColor();
-
+    resetNextRound();
+    adjustColor();
 }
 
 // Function to end the Game. The function will reset all the values
@@ -63,7 +48,7 @@ const resetNextRound = () => {
     nextRoundButton.setAttribute("disabled", true); // Disable button after clicking
     roundLabel.textContent = currentRoundNumber;
     btnPlus.removeAttribute("disabled");
-    guessBtn[0].removeAttribute("disabled");
+    guessBtn.removeAttribute("disabled");
     playerInput.value = "0";
     playerWinDisplay.textContent = "You";
     computerWinDisplay.textContent = "Computer";
@@ -85,12 +70,7 @@ const resetEndGame = () => {
     endGameButton.setAttribute("disabled", true);
 }
 
-// Function to initialize values
-const initializeValues = () => {
-    return playerScore, computerScore, currentRoundNumber;
-}
-
-function correctColor() {
+function adjustColor() {
     if (btnMinus.disabled) {
        btnMinus.style.backgroundColor = "#E9EDDE";
     } else {
@@ -103,4 +83,33 @@ function correctColor() {
     }
  }
 
- 
+ // Function to Check the value of the input
+const handleInputValue = value => {
+    if(value > Number(playerInput.min) && value < Number(playerInput.max)) {
+        btnMinus.removeAttribute("disabled");
+        btnPlus.removeAttribute("disabled");
+        guessBtn.removeAttribute("disabled");
+        showErrorMessage();
+    } else if (value > Number(playerInput.max)) {
+        btnPlus.setAttribute("disabled", true);
+        guessBtn.setAttribute("disabled", true);
+        showErrorMessage("block", "You should enter a number less than 10!!");
+    } else if (value < Number(playerInput.min)) {
+        btnMinus.setAttribute("disabled", true);
+        guessBtn.setAttribute("disabled", true);
+        showErrorMessage("block", "You should enter a number greater than or equal to 0");
+    } else if (value == Number(playerInput.min)) {
+        btnMinus.setAttribute("disabled", true);
+        showErrorMessage("none");
+    } else if (value == Number(playerInput.max)) {
+        btnPlus.setAttribute("disabled", true);
+        showErrorMessage("none");
+    } 
+    adjustColor();
+ }
+
+  // Function to display the error message
+  const showErrorMessage = (display = "none", message = "") => {
+    error.style.display = display;
+    error.textContent = message;
+ }

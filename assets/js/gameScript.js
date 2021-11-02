@@ -2,24 +2,14 @@
 
 let secretNumber;
 
-const roundLabel = document.getElementsByClassName("round-label")[0];
-const computerScoreEl = document.getElementById("computer-score"); // Get the computer score
-const playerScoreEl = document.getElementById("player-score"); // Get the player score
-const secretNumberLabel = document.getElementById("target-label"); // Get the label of the secret number
-const computerGuessLabel = document.getElementsByClassName("computer-guess-label")[0];
-const nextRoundButton = document.getElementsByClassName("btn-next")[0];
-const endGameButton = document.getElementsByClassName("btn-end")[0];
-const playerWinDisplay = document.getElementById("player-win");
-const computerWinDisplay = document.getElementById("computer-win");
-
-// Link to controls button to the player input
+// Player choose his number with the -/+ buttons
 btnPlus.addEventListener("click", () => {
-    playerInput.value = Number(playerInput.value) + 1;
-    handleInputValue(Number(playerInput.value));
+    playerInput.value = Number(playerInput.value) + 1; // Player increase the number
+    handleInputValue(Number(playerInput.value)); // Check if the number is correct and adjust button state
 })
 
 btnMinus.addEventListener("click", () => {
-    playerInput.value = Number(playerInput.value) - 1;
+    playerInput.value = Number(playerInput.value) - 1; // Player decrease the number
     handleInputValue(Number(playerInput.value));
 })
 
@@ -28,8 +18,8 @@ playerInput.addEventListener("input", function(e) { // No useful with readonly
     handleInputValue(e.target.value);
 })
 
-// Player click the button 
-guessBtn[0].addEventListener("click", () => {
+// Player click the guess button 
+guessBtn.addEventListener("click", () => {
     // Generate Secret number
     secretNumber = generateNumber();
     
@@ -43,7 +33,6 @@ guessBtn[0].addEventListener("click", () => {
     computerGuessLabel.textContent = computerGuessNumber;
 
     // Find the winner
-
     const IsPlayerWinner = compareGuesses(currentPlayerGuess, computerGuessNumber, secretNumber);
     const winner = IsPlayerWinner ? "player" : "computer";
 
@@ -58,61 +47,26 @@ guessBtn[0].addEventListener("click", () => {
         playerWinDisplay.textContent = "Try again!";
     }
 
-
     // Update the scores
     computerScoreEl.textContent = computerScore;
     playerScoreEl.textContent = playerScore;
 
     // Change the state of the buttons
-    guessBtn[0].setAttribute("disabled", true); // Disable the guess button
+    guessBtn.setAttribute("disabled", true); // Disable the guess button
     nextRoundButton.removeAttribute("disabled"); // Enable the next round button 
     btnMinus.setAttribute("disabled", true); // Disable the minus button
     btnPlus.setAttribute("disabled", true); // Disable the plus button
     playerInput.setAttribute("readonly", true); // Disable the input field
-    correctColor();
+    adjustColor();
     currentRoundNumber += 1; // Increase the round
 });
 
 // Player click the Next round button 
-
 nextRoundButton.addEventListener("click", () => {
     goNextRound();
 })
 
 // Player end the game
-
 endGameButton.addEventListener("click", () => {
     endGame();
 })
-/* Helper functions */
-
-// Function to Check the value of the input
-const handleInputValue = value => {
-    if(value > Number(playerInput.min) && value < Number(playerInput.max)) {
-        btnMinus.removeAttribute("disabled");
-        btnPlus.removeAttribute("disabled");
-        guessBtn[0].removeAttribute("disabled");
-        showErrorMessage();
-    } else if (value > Number(playerInput.max)) {
-        btnPlus.setAttribute("disabled", true);
-        guessBtn[0].setAttribute("disabled", true);
-        showErrorMessage("block", "You should enter a number less than 10!!");
-    } else if (value < Number(playerInput.min)) {
-        btnMinus.setAttribute("disabled", true);
-        guessBtn[0].setAttribute("disabled", true);
-        showErrorMessage("block", "You should enter a number greater than or equal to 0");
-    } else if (value == Number(playerInput.min)) {
-        btnMinus.setAttribute("disabled", true);
-        showErrorMessage("none");
-    } else if (value == Number(playerInput.max)) {
-        btnPlus.setAttribute("disabled", true);
-        showErrorMessage("none");
-    }
-    correctColor();
- }
- 
- // Function to display the error message
- const showErrorMessage = (display = "none", message = "") => {
-    error.style.display = display;
-    error.textContent = message;
- }
