@@ -6,17 +6,23 @@ let secretNumber;
 btnPlus.addEventListener("click", () => {
     playerInput.value = Number(playerInput.value) + 1; // Player increase the number
     handleInputValue(Number(playerInput.value)); // Check if the number is correct and adjust button state
-})
+});
 
 btnMinus.addEventListener("click", () => {
     playerInput.value = Number(playerInput.value) - 1; // Player decrease the number
     handleInputValue(Number(playerInput.value));
-})
+});
 
 // Function to disable the guess btn if a wrong value is inserted
 playerInput.addEventListener("input", function(e) { // No useful with readonly
+
     handleInputValue(e.target.value);
-})
+});
+// Select the input value at once after focus
+playerInput.addEventListener("focus", () => {
+    playerInput.select(); // select the value on click. setSelectionRange doesn't work with number
+                          // this doesn't work in this context?
+ });
 
 // Player click the guess button 
 guessBtn.addEventListener("click", () => {

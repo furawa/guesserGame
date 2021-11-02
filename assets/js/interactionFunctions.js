@@ -24,6 +24,10 @@ playerInput.value = "0"; // Set the default value;
 // Style the input field. This can be done in style.css too
 playerInput.style.margin = "auto";
 playerInput.style.textAlign = "center";
+playerInput.addEventListener("focus", () => {
+   playerInput.select(); // select the value on click. setSelectionRange doesn't work with number
+                         // this doesn't work in this context?
+});
 
 // Create a span to display error message
 const error = createEle("span", "error", "0.7rem", width="200px", height="30px");
