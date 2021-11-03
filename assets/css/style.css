@@ -85,7 +85,7 @@ input::-webkit-inner-spin-button {
 .instruction {
     width: 200px;
     flex: 1 150px;
-    height: fit-content;
+    /* height: fit-content; */
     border: 1px dotted #5B5848;
 }
 @media screen and (min-width: 576px) {
