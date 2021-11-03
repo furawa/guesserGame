@@ -80,13 +80,14 @@ input::-webkit-inner-spin-button {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 5%;
+    background-color: #4D5061;
+    color: white;
 }
 
 .instruction {
     width: 200px;
     flex: 1 150px;
-    /* height: fit-content; */
-    border: 1px dotted #5B5848;
+    border: 1px dotted #5C80BC;
 }
 @media screen and (min-width: 576px) {
     .instruction {
