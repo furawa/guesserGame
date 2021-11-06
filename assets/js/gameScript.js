@@ -16,7 +16,7 @@ btnMinus.addEventListener("click", () => {
 // Function to disable the guess btn if a wrong value is inserted
 playerInput.addEventListener("input", function (e) {
   // No useful with readonly
-
+  
   handleInputValue(e.target.value);
 });
 // Select the input value at once after focus

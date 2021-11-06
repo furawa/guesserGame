@@ -37,16 +37,15 @@ playerInput.style.textAlign = "center";
 const error = createEle(
   "span",
   "error",
-  "0.7rem",
+  "0.6rem",
   (width = "200px"),
   (height = "30px")
 );
 error.style.display = "none";
 error.style.color = "black";
-error.style.marginTop = "5px";
 error.style.border = "1px solid red";
 error.style.margin = "auto";
-// Add the input after the score
+error.style.marginBottom = "5px";
 
 // Create minus button
 const btnMinus = createEle(
@@ -54,12 +53,12 @@ const btnMinus = createEle(
   (id = "minus"),
   (width = "45px"),
   (height = "45px")
-); // Create the minus button
+); 
+// Style the minus button
 btnMinus.textContent = "-"; // Set the text to be -
 btnMinus.style.borderRadius = "50% 0 0 50%";
 btnMinus.style.border = "1px solid #4D5061";
 btnMinus.style.color = "#4D5061";
-// btnMinus.style.backgroundColor = "#E7E247";
 btnMinus.disabled = "true";
 
 // Create plus button
@@ -90,7 +89,7 @@ divControl.style.margin = "1% auto 5% auto";
 function insertInput() {
   guessBtn.insertAdjacentElement("beforebegin", playerInput);
   // Insert the error span, won't be visible as there is no text
-  playerInput.insertAdjacentElement("afterend", error);
+  playerInput.insertAdjacentElement("beforebegin", error);
 }
 
 // Insert the div with buttons before the guess button
@@ -107,12 +106,12 @@ const showResult = () => {
   // Create the div to contain the results
   divResults = createEle("div", "1rem", (width = "100%"));
   divResults.className = "result";
-  divResults.innerHTML = `<h2>Game ${GameNumber}<h2>
+  divResults.innerHTML = `<h2>Game ${GameNumber}</h2>
                         <p>Your Score: ${playerScore}<br>
                         Computer Score: ${computerScore}<br>
                         Number of Rounds: ${currentRoundNumber - 1}</p>`;
   // Little styling
-  // divResults.style.border = "1px solid black";
+  divResults.style.border = "1px solid black";
   divResults.style.textAlign = "left";
   // Append the div in the footer
   document.getElementById("div-container").appendChild(divResults);

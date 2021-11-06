@@ -153,4 +153,8 @@ input::-webkit-inner-spin-button {
 
 .result {
   margin: auto;
+  padding: 5px;
+}
+.result h2 {
+  text-decoration: underline;
 }
