@@ -135,15 +135,3 @@ function createEle(
   return el;
 }
 
-function adjustColor() {
-  if (btnMinus.disabled) {
-    btnMinus.style.backgroundColor = "#E9EDDE";
-  } else {
-    btnMinus.style.backgroundColor = "#E7E247";
-  }
-  if (btnPlus.disabled) {
-    btnPlus.style.backgroundColor = "#E9EDDE";
-  } else {
-    btnPlus.style.backgroundColor = "#E7E247";
-  }
-}
