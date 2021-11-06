@@ -85,34 +85,40 @@ function adjustColor() {
 
 // Function to Check the value of the input
 const handleInputValue = (value) => {
-  if (value > Number(playerInput.min) && value < Number(playerInput.max)) {
+  const maxInput = Number(playerInput.max);
+  const minInput = Number(playerInput.min);
+  if (value > minInput && value < maxInput) {
     btnMinus.removeAttribute("disabled");
     btnPlus.removeAttribute("disabled");
     guessBtn.removeAttribute("disabled");
-    showErrorMessage();
-  } else if (value > Number(playerInput.max)) {
+    showErrorMessage(); 
+  } else if (value > maxInput) {
     btnPlus.setAttribute("disabled", true);
     guessBtn.setAttribute("disabled", true);
     showErrorMessage("block", "You should enter a number less than 10!!");
-  } else if (value < Number(playerInput.min)) {
+  } else if (value < minInput) {
     btnMinus.setAttribute("disabled", true);
     guessBtn.setAttribute("disabled", true);
     showErrorMessage(
       "block",
       "You should enter a number greater than or equal to 0"
     );
-  } else if (value == Number(playerInput.min)) {
+  } else if (value == playerInput.min) {
     btnMinus.setAttribute("disabled", true);
-    showErrorMessage("none");
-  } else if (value == Number(playerInput.max)) {
+    showErrorMessage();
+  } else if (value == maxInput) {
     btnPlus.setAttribute("disabled", true);
-    showErrorMessage("none");
+    showErrorMessage();
+  } else {
+    guessBtn.setAttribute("disabled", true);
+    showErrorMessage("block", "No empty value allowed!");
   }
   adjustColor();
 };
 
 // Function to display the error message
-const showErrorMessage = (display = "none", message = "") => {
+const showErrorMessage = (display = "none", message = "", color = "") => {
+  playerInput.style.color = color;
   error.style.display = display;
   error.textContent = message;
 };
