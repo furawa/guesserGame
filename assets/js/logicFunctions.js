@@ -4,6 +4,9 @@ let playerScore = 0;
 let computerScore = 0;
 let currentRoundNumber = 1;
 let GameNumber = 1;
+let totalComputerWins = 0;
+let totalPlayerWins = 0;
+let totalRounds = 0;
 
 // Function to generate the number to guess
 const generateNumber = () => {
@@ -34,6 +37,13 @@ const goNextRound = () => {
 
 // Function to end the Game. The function will reset all the values
 const endGame = () => {
+  totalRounds += currentRoundNumber - 1;
+  
+  if (playerScore > computerScore) {
+    totalPlayerWins++;
+  } else {
+    totalComputerWins++;
+  }
   showResult();
   resetEndGame();
 };

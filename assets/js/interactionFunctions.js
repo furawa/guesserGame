@@ -14,7 +14,9 @@ const endGameButton = document.getElementsByClassName("btn-end")[0];
 const playerWinDisplay = document.getElementById("player-win");
 const computerWinDisplay = document.getElementById("computer-win");
 const guessBtn = document.getElementsByClassName("btn-guess")[0];
-
+const table = document.getElementsByTagName("table")[0]; // Get the table element
+const tbody = document.getElementsByTagName("tbody")[0]; // Get the body element of the table
+const tfoot = document.getElementsByTagName("tfoot")[0]; // Get the foot element of the table
 /*===================Elements Creation=====================*/
 
 // Create the player input element
@@ -22,8 +24,8 @@ const playerInput = createEle(
   (element = "input"),
   (id = "playerInput"),
   (fontSize = "1.4rem"),
-  (width = "90px"),
-  (height = "90px")
+  (width = "80px"),
+  (height = "110px")
 );
 playerInput.type = "number"; // Set the type of the input
 playerInput.min = "0"; // Set the min value
@@ -103,19 +105,24 @@ function insertControls() {
 
 /* Function to display the results after end game */
 const showResult = () => {
-  // Create the div to contain the results
-  divResults = createEle("div", "1rem", (width = "100%"));
-  divResults.className = "result";
-  divResults.innerHTML = `<h2>Game ${GameNumber}</h2>
-                        <p>Your Score: ${playerScore}<br>
-                        Computer Score: ${computerScore}<br>
-                        Number of Rounds: ${currentRoundNumber - 1}</p>`;
-  // Little styling
-  divResults.style.border = "1px solid black";
-  divResults.style.textAlign = "left";
-  // Append the div in the footer
-  document.getElementById("div-container").appendChild(divResults);
-};
+  // display the table
+  table.style.display = "table";
+  // var documentFragment = document.createDocumentFragment();
+  const newRow = document.createElement("tr");
+  
+  // Update the table cells of the body
+  newRow.insertCell(0).textContent = `Game ${GameNumber}`;
+  newRow.insertCell(1).textContent = `${playerScore}`;
+  newRow.insertCell(2).textContent = `${computerScore}`;
+  newRow.insertCell(3).textContent = `${currentRoundNumber - 1}`;
+  tbody.appendChild(newRow);
+
+  tfoot.innerHTML = `<tr><th>Total Wins</th>
+                     <td>${totalPlayerWins}</td>
+                     <td>${totalComputerWins}</td>
+                     <td>${totalRounds}</td></tr>`;
+  
+}
 
 // Helper functions
 function createEle(
