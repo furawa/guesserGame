@@ -4,6 +4,7 @@ The goal of this project is to learn how to use Javascript to interact with the 
 - Learn how to create an element  
 - Learn how to add an element in the DOM
 - Learn how to style an element using Javascript syntax   
+- Learn how to change an input value by clicking buttons  
 ## How to play  
 The goal of the game is to find a random number between 0 and 9.   
 You are playing against a computer.  
@@ -13,4 +14,4 @@ You are playing against a computer.
 4. Click "Next Round" to play another round  
 5. Click "End Game" to Finish the Game and reset your score. You can end the game after at least 3 rounds.  
 
-Here is the link to see to play the game. https://furawa.github.io/guesserGame/;
+Here is the link to the game. https://furawa.github.io/guesserGame/;

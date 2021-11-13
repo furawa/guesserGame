@@ -56,20 +56,23 @@ const resetNextRound = () => {
   playerInput.removeAttribute("readonly");
 };
 
-// Funtion to reset after end game
+// Function to reset values after end game
 
 const resetEndGame = () => {
   resetNextRound();
-  GameNumber += 1;
-  playerScore = 0;
-  computerScore = 0;
-  currentRoundNumber = 1;
-  roundLabel.textContent = currentRoundNumber;
+  GameNumber += 1; // Increase the game number by 1
+  playerScore = 0; // Reset player score
+  computerScore = 0; // Reset computer Score
+  currentRoundNumber = 1; // Reset current round number to 1
+  // Show the reseted values
+  roundLabel.textContent = currentRoundNumber; 
   playerScoreEl.textContent = playerScore;
   computerScoreEl.textContent = computerScore;
+  // Disable the end Game button
   endGameButton.setAttribute("disabled", true);
 };
 
+// Function to adjust the color of the -/+ buttons base on their state
 function adjustColor() {
   if (btnMinus.disabled) {
     btnMinus.style.backgroundColor = "#E9EDDE";
@@ -87,16 +90,19 @@ function adjustColor() {
 const handleInputValue = (value) => {
   const maxInput = Number(playerInput.max);
   const minInput = Number(playerInput.min);
+  // Value is between min and max
   if (value > minInput && value < maxInput) {
     btnMinus.removeAttribute("disabled");
     btnPlus.removeAttribute("disabled");
     guessBtn.removeAttribute("disabled");
-    showErrorMessage(); 
-  } else if (value > maxInput) {
+    showErrorMessage(); // No error message shown, Remove it
+  } else if (value > maxInput) { 
+    // disable the buttons and show error message
     btnPlus.setAttribute("disabled", true);
     guessBtn.setAttribute("disabled", true);
     showErrorMessage("block", "You should enter a number less than 10!!");
   } else if (value < minInput) {
+    // Disable the buttons and show error message
     btnMinus.setAttribute("disabled", true);
     guessBtn.setAttribute("disabled", true);
     showErrorMessage(
