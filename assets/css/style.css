@@ -162,3 +162,22 @@ input {
 .result h2 {
   text-decoration: underline;
 }
+
+/* Table styling */ 
+table {
+  width: 80%;
+  border: 1px solid black;
+  margin: auto;
+  display: none;
+}
+
+tr, td, th {
+  border: 1px solid black;
+}
+
+thead, tfoot {
+  background-color: #5b5848;
+  color: white;
+  font-size: 1.2rem;
+
+}
