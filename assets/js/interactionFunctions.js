@@ -38,8 +38,8 @@ playerInput.style.textAlign = "center";
 // Create a span to display error message
 const error = createEle(
   "span",
-  "error",
-  "0.6rem",
+  (id = "error"),
+  (fontSize = "0.6rem"),
   (width = "200px"),
   (height = "30px")
 );
@@ -48,6 +48,8 @@ error.style.color = "black";
 error.style.border = "1px solid red";
 error.style.margin = "auto";
 error.style.marginBottom = "5px";
+error.style.paddingTop = "3px";
+
 
 // Create minus button
 const btnMinus = createEle(

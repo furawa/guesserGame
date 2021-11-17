@@ -82,7 +82,7 @@ const resetEndGame = () => {
   endGameButton.setAttribute("disabled", true);
 };
 
-// Function to adjust the color of the -/+ buttons base on their state
+// Function to adjust the color of the -/+ buttons based on their state
 function adjustColor() {
   if (btnMinus.disabled) {
     btnMinus.style.backgroundColor = "#E9EDDE";
@@ -105,7 +105,7 @@ const handleInputValue = (value) => {
     btnMinus.removeAttribute("disabled");
     btnPlus.removeAttribute("disabled");
     guessBtn.removeAttribute("disabled");
-    showErrorMessage(); // No error message shown, Remove it
+    showErrorMessage(); // No error message shown, Remove it if is there
   } else if (value > maxInput) { 
     // disable the buttons and show error message
     btnPlus.setAttribute("disabled", true);
@@ -121,6 +121,7 @@ const handleInputValue = (value) => {
     );
   } else if (value == playerInput.min) {
     btnMinus.setAttribute("disabled", true);
+    guessBtn.removeAttribute("disabled");
     showErrorMessage();
   } else if (value == maxInput) {
     btnPlus.setAttribute("disabled", true);

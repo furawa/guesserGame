@@ -150,6 +150,20 @@ input {
   margin-bottom: 5%;
 }
 
+#error {
+  border-radius: 5px 5px 5px 5px;
+  position: relative;
+}
+#error::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+}
+
 /* Table styling */ 
 table {
   min-width: 300px;
